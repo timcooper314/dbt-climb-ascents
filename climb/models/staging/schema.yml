@@ -1,0 +1,56 @@
+version: 2
+
+models:
+  - name: stg_climbers
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: country
+      - name: sex
+      - name: height
+      - name: weight
+      - name: birthdate
+  - name: stg_routes
+    columns:
+      - name: route_id
+        tests:
+          - unique
+          - not_null
+      - name: country
+      - name: crag
+      - name: sector
+      - name: name
+      - name: tall_recommend_sum
+      - name: grade_mean
+      - name: cluster
+      - name: rating_tot
+  - name: stg_grades_ref
+    columns:
+      - name: grade_id
+        tests:
+          - unique
+          - not_null
+      - name: grade_fra
+  - name: stg_ascents
+    columns:
+      - name: ascent_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+      - name: route_id
+      - name: ascent_date
+  - name: stg_locations
+    columns:
+      - name: location_name
+        tests:
+          - unique
+          - not_null
+      - name: longitude
+        tests:
+          - not_null
+      - name: latitude
+        tests:
+          - not_null

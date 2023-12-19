@@ -1,0 +1,20 @@
+version: 2
+
+seeds:
+  - name: raw_ascents
+    description: Raw ascents data from CSV
+    columns:
+      - name: ascent_id
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: route_id
+        tests:
+          - not_null
+      - name: ascent_date
+        tests:
+          - not_null
+    source:
+      path: raw_ascents.csv

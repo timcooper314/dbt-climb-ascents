@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    database: climbs_db
+    schema: public
+    tables:
+      - name: raw_routes
+      - name: raw_climbers
+      - name: raw_grades_ref
+      - name: raw_ascents
+      - name: raw_locations

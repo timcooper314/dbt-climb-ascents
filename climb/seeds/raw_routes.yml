@@ -1,0 +1,19 @@
+version: 2
+
+seeds:
+  - name: raw_routes
+    description: Raw routes data from CSV
+    columns:
+      - name: name_id
+        tests:
+          - not_null
+      - name: country
+      - name: crag
+      - name: sector
+      - name: name
+      - name: tall_recommend_sum
+      - name: grade_mean
+      - name: cluster
+      - name: rating_tot
+    source:
+      path: raw_routes.csv

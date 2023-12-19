@@ -1,0 +1,14 @@
+version: 2
+
+seeds:
+  - name: raw_locations
+    description: Raw locations data from CSV, containing json data
+    columns:
+      - name: location_data
+        tests:
+          - not_null
+      - name: created_at
+        tests:
+          - not_null
+    source:
+      path: raw_locations.csv
