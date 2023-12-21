@@ -16,7 +16,13 @@ To create lineage diagram:
 
 
 # Project ideas
-- Seeds in S3
+- Deploy S3 bucket for Seeds, Glue crawler, Glue DB:
+- `cd cdk/ && cdk deploy dev-dbt-sector-tc`
+- Push seeds to S3
+- `cd .. && aws s3 `
+- In  Lake Formation - Manually register new S3 bucket as a "Data Lake location", and grant crawler role access to the Data location. Add Data lake permissions for the GLue DB, and for the GLue DB + all tables.
+- Run crawler, and validate glue tables' data
+- In Lakeformation - Grant Quicksight service role access to all relevant Glue tables
 
 
 # Dashboarding ideas
