@@ -24,6 +24,17 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 
+seeds:
+  climb:
+    raw_ascents:
+      +enabled: true
+    raw_climbers:
+      +enabled: true
+    raw_grades_ref:
+      +enabled: true
+    raw_routes:
+      +enabled: true
+
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
 

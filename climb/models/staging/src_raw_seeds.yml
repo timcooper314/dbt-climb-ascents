@@ -2,11 +2,10 @@ version: 2
 
 sources:
   - name: raw
-    database: climbs_db
-    schema: public
+    database: AWSDataCatalog
+    schema: dev_dbt_sector
     tables:
       - name: raw_routes
       - name: raw_climbers
       - name: raw_grades_ref
       - name: raw_ascents
-      - name: raw_locations
