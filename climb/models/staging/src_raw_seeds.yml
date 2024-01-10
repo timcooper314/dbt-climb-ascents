@@ -2,6 +2,7 @@ version: 2
 
 sources:
   - name: raw
+    description: Data generated or sourced from Kaggle.
     database: AWSDataCatalog
     schema: dev_dbt_sector
     tables:

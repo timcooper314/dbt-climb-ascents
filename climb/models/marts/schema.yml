@@ -4,18 +4,9 @@ models:
   - name: fct_climber_ascents
     columns:
       - name: ascent_id
-        tests:
-          - unique
-          - not_null
       - name: user_id
-        tests:
-          - not_null
       - name: route_id
-        tests:
-          - not_null
       - name: ascent_date
-        tests:
-          - not_null
       - name: route_name
       - name: crag
       - name: sector
@@ -29,9 +20,6 @@ models:
   - name: dim_climbers
     columns:
       - name: user_id
-        tests:
-          - unique
-          - not_null
       - name: number_of_ascents
       - name: first_climb_date
       - name: most_recent_climb_date

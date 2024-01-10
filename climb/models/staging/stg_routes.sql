@@ -2,8 +2,10 @@ with raw_climbs as (
     select *
     from {{ source('raw', 'raw_routes') }}
 ),
+
 final as (
-    select name_id as route_id,
+    select
+        name_id as route_id,
         country,
         crag,
         sector,
@@ -14,5 +16,6 @@ final as (
         rating_tot
     from raw_climbs
 )
+
 select *
 from final

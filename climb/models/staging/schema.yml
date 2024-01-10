@@ -2,11 +2,13 @@ version: 2
 
 models:
   - name: stg_climbers
+    description: '{{ doc("climbers") }}'
     columns:
       - name: user_id
         tests:
           - unique
           - not_null
+        description: The primary key for stg_climbers
       - name: country
       - name: sex
       - name: height
@@ -18,6 +20,7 @@ models:
         tests:
           - unique
           - not_null
+        description: The primary key for stg_routes
       - name: country
       - name: crag
       - name: sector
@@ -40,17 +43,9 @@ models:
           - unique
           - not_null
       - name: user_id
+        tests:
+          - not_null
       - name: route_id
+        tests:
+          - not_null
       - name: ascent_date
-  - name: stg_locations
-    columns:
-      - name: location_name
-        tests:
-          - unique
-          - not_null
-      - name: longitude
-        tests:
-          - not_null
-      - name: latitude
-        tests:
-          - not_null
