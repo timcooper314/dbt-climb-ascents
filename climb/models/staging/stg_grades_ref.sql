@@ -1,6 +1,6 @@
 with raw_grades_ref as (
     select *
-    from {{ source('raw', 'raw_grades_ref') }}
+    from {{ ref( 'raw_grades_ref') }}
 ),
 
 final as (

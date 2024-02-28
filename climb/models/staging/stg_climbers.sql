@@ -1,6 +1,6 @@
 with raw_climbers as (
     select *
-    from {{ source('raw', 'raw_climbers') }}
+    from {{ ref( 'raw_climbers') }}
 ),
 
 final as (

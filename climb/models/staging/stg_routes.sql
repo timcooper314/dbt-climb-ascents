@@ -1,6 +1,6 @@
 with raw_climbs as (
     select *
-    from {{ source('raw', 'raw_routes') }}
+    from {{ ref( 'raw_routes') }}
 ),
 
 final as (
