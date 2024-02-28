@@ -1,9 +1,80 @@
 version: 2
 
 models:
+  - name: dim_climbers
+    description: One record per climber.
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_climbers')
+              field: user_id
+      - name: number_of_ascents
+      - name: first_climb_date
+      - name: most_recent_climb_date
+      - name: max_grade_climb
+      - name: median_grade_climb
+      - name: years_climbing
+
+  - name: dim_countries
+    description: One record per country.
+    columns:
+      - name: country
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_routes')
+              field: country
+      - name: num_routes
+      - name: num_crags
+      - name: num_sectors
+      - name: hardest_route_grade
+      - name: hardest_route_grade_fra
+      - name: median_route_grade
+      - name: median_route_grade_fra
+      - name: avg_route_rating
+
   - name: fct_climber_ascents
     columns:
       - name: ascent_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_ascents')
+              field: ascent_id
+      - name: user_id
+        tests:
+          - relationships:
+              to: ref('stg_climbers')
+              field: user_id
+      - name: route_id
+        tests:
+          - relationships:
+              to: ref('stg_routes')
+              field: route_id
+      - name: ascent_date
+      - name: route_name
+      - name: crag
+      - name: sector
+      - name: country
+      - name: grade_mean
+      - name: grade_id
+      - name: grade_fra
+      - name: climber_age
+
+  - name: fct_climber_ascents_snapshot
+    columns:
+      - name: ascent_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_ascents')
+              field: ascent_id
       - name: user_id
       - name: route_id
       - name: ascent_date
@@ -11,18 +82,32 @@ models:
       - name: crag
       - name: sector
       - name: country
-      - name: sector
       - name: grade_mean
       - name: grade_id
       - name: grade_fra
       - name: climber_age
+      - name: ascent_order
+      - name: hardest_ascent_to_date
 
-  - name: dim_climbers
+  - name: fct_routes_first_ascents
     columns:
+      - name: ascent_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              to: ref('stg_ascents')
+              field: ascent_id
       - name: user_id
-      - name: number_of_ascents
-      - name: first_climb_date
-      - name: most_recent_climb_date
-      - name: max_grade_climb
-      - name: median_grade_climb
-      - name: years_climbing
+      - name: route_id
+        tests:
+          - unique
+      - name: ascent_date
+      - name: route_name
+      - name: crag
+      - name: sector
+      - name: country
+      - name: grade_mean
+      - name: grade_id
+      - name: grade_fra
+      - name: climber_age

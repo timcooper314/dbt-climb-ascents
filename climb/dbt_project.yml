@@ -44,8 +44,12 @@ seeds:
 
 models:
   climb:
+    # All models should have 1 of unique or not_null
+    +required_tests: {"unique.*|not_null": 1}
     # Config indicated by + and applies to all files under models/example/
     staging:
       +materialized: view
     marts:
+      # Marts should have an additional test for relationships
+      +required_tests: {"relationship.*": 1}
       +materialized: view
