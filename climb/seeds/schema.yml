@@ -1,0 +1,47 @@
+version: 2
+
+seeds:
+  - name: raw_routes
+    columns:
+      - name: name_id
+        tests:
+          - unique
+          - not_null
+      - name: country
+      - name: crag
+      - name: sector
+      - name: name
+      - name: tall_recommend_sum,
+      - name: grade_mean
+      - name: cluster
+      - name: rating_tot
+
+  - name: raw_climbers
+    columns:
+      - name: user_id
+        tests:
+          - unique
+          - not_null
+      - name: country
+      - name: sex
+      - name: height
+      - name: weight
+      - name: birthdate
+
+  - name: raw_grades_ref
+    columns:
+      - name: grade_id
+        tests:
+          - unique
+          - not_null
+      - name: grade_fra
+
+  - name: raw_ascents
+    columns:
+      - name: ascent_id
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+      - name: route_id
+      - name: ascent_date
