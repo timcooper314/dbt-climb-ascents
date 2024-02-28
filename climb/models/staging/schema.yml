@@ -49,3 +49,5 @@ models:
         tests:
           - not_null
       - name: ascent_date
+        tests:
+          - assert_ascent_date_in_past
