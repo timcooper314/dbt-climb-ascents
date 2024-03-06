@@ -7,7 +7,10 @@ models:
       - name: user_id
         tests:
           - unique
-          - not_null
+          - not_null:
+              config:
+                severity: error
+                limit: 10
           - relationships:
               to: ref('stg_climbers')
               field: user_id
@@ -38,6 +41,12 @@ models:
       - name: avg_route_rating
 
   - name: fct_climber_ascents
+    tests:
+      - dbt_utils.expression_is_true:
+          expression: "climber_age >= 0"  # Data creation error
+          config:
+            severity: warn
+            store_failures: true
     columns:
       - name: ascent_id
         tests:
@@ -63,6 +72,10 @@ models:
       - name: country
       - name: grade_mean
       - name: grade_id
+        tests:
+          - dbt_expectations.expect_column_values_to_be_between:
+              min_value: 3
+              max_value: 84
       - name: grade_fra
       - name: climber_age
 
