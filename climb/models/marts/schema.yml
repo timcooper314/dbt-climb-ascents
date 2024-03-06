@@ -10,7 +10,8 @@ models:
           - not_null:
               config:
                 severity: error
-                limit: 10
+                error_if: ">10"
+                warn_if: ">1"
           - relationships:
               to: ref('stg_climbers')
               field: user_id

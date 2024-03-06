@@ -2,6 +2,7 @@ version: 2
 
 seeds:
   - name: raw_routes
+    description: Global routes data from Kaggle.
     columns:
       - name: name_id
         tests:
@@ -11,12 +12,13 @@ seeds:
       - name: crag
       - name: sector
       - name: name
-      - name: tall_recommend_sum,
+      - name: tall_recommend_sum
       - name: grade_mean
       - name: cluster
       - name: rating_tot
 
   - name: raw_climbers
+    description: Climbers data from Kaggle.
     columns:
       - name: user_id
         tests:
@@ -29,6 +31,7 @@ seeds:
       - name: birthdate
 
   - name: raw_grades_ref
+    description: Route grades reference for French grades from Kaggle.
     columns:
       - name: grade_id
         tests:
@@ -37,6 +40,7 @@ seeds:
       - name: grade_fra
 
   - name: raw_ascents
+    description: Randomly generated ascents based on climbers and routes, by TC.
     columns:
       - name: ascent_id
         tests:
