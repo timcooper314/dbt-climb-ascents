@@ -1,0 +1,17 @@
+version: 2
+
+exposures:
+  - name: climber_ascents_quicksight_dashboard
+    label: Climber Ascents QuickSight Dashboard
+    type: dashboard
+    description: Explore the latest hard ascents and FAs from around the world, as well as individual climber profiles.
+    maturity: low
+    depends_on:
+      - ref('dim_climbers')
+      - ref('dim_countries')
+      - ref('stg_grades_ref')
+      - ref('fct_climber_ascents')
+      - ref('fct_climber_ascents_snapshot')
+      - ref('fct_routes_first_ascents')
+    owner:
+      name: Tim
