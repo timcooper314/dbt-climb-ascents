@@ -5,6 +5,7 @@ models:
     description: One record per climber.
     columns:
       - name: user_id
+        description: '{{ doc("climber_id") }}'
         tests:
           - unique
           - not_null:
@@ -61,6 +62,7 @@ models:
           - relationships:
               to: ref('stg_climbers')
               field: user_id
+        description: '{{ doc("climber_id") }}'
       - name: route_id
         tests:
           - relationships:

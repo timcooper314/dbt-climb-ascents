@@ -1,9 +1,7 @@
-# Climbs
-A sample project using dbt on postgres for Climbing data.
+# DBT Climbs Project
+A sample project using dbt on Athena for Climbing data.
 
-
-# DB (with Postgres)
-Spin up the Postgres database using the spin_up_postgres.sh script.
+# DB
 
 To load seed data into tables:
 `dbt seed`
@@ -23,6 +21,10 @@ To create lineage diagram:
 - Build models:
 - `dbt build`
 - In Lakeformation - Grant Quicksight service role access to all relevant Glue tables
+- main page docs
+- Serve docs site on static S3 with IP access limitations
+- `dbt run-operation required_tests` in CICD
+- snapshot on fct_climber_ascents
 
 
 # Dashboarding ideas
@@ -31,4 +33,4 @@ To create lineage diagram:
 - Long-lat map of ascent locations
 - Top climbers of the month
 - Climber profiles
-
+- Change of max/median grade over time
