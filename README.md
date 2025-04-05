@@ -1,7 +1,10 @@
 # DBT Climbs Project
 A sample project using dbt on Athena for Climbing data.
 
-# DB
+Python ~3.10
+
+![QuickSight Dashboard](climb/assets/qs_dashboard_screenshot.png)
+### DB
 
 To load seed data into tables:
 `dbt seed`
@@ -12,7 +15,7 @@ To create lineage diagram:
 `dbt docs serve`
 
 
-# Project ideas
+### Project ideas
 - Deploy S3 bucket for Seeds, Glue crawler, Glue DB:
 - `cd cdk/ && cdk deploy dev-dbt-sector-tc`
 - In  Lake Formation - Manually register new S3 bucket as a "Data Lake location", and grant crawler role access to the Data location. Add Data lake permissions for the GLue DB, and for the GLue DB + all tables.
@@ -27,7 +30,7 @@ To create lineage diagram:
 - snapshot on fct_climber_ascents
 
 
-# Dashboarding ideas
+### Dashboarding ideas
 
 - Climber ages by grade of ascent (y axes boulder grade and SC grade).
 - Long-lat map of ascent locations
