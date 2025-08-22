@@ -1,10 +1,22 @@
 # DBT Climbs Project
-A sample project using dbt on Athena for Climbing data.
+A project using dbt on AWS Athena for Climbing data.
 
-Python ~3.10
+![QuickSight Dashboard](dbt/assets/qs_dashboard_screenshot.png)
 
-![QuickSight Dashboard](climb/assets/qs_dashboard_screenshot.png)
-### DB
+## Development
+#### Prerequisites:
+- Python ~3.12
+- uv
+
+#### Virtual env setup
+The uv installer automatically uses the uv.lock file to install the exact versions of all packages and their sub-dependencies.
+```
+uv venv
+source .venv/bin/activate
+uv pip install
+```
+
+#### dbt
 
 To load seed data into tables:
 `dbt seed`
