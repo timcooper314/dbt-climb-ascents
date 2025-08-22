@@ -14,8 +14,9 @@ models:
                 error_if: ">10"
                 warn_if: ">1"
           - relationships:
-              to: ref('stg_climbers')
-              field: user_id
+              arguments:
+                to: ref('stg_climbers')
+                field: user_id
       - name: number_of_ascents
       - name: first_climb_date
       - name: most_recent_climb_date
@@ -31,8 +32,9 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('stg_routes')
-              field: country
+              arguments:
+                to: ref('stg_routes')
+                field: country
       - name: num_routes
       - name: num_crags
       - name: num_sectors
@@ -45,29 +47,33 @@ models:
   - name: fct_climber_ascents
     tests:
       - dbt_utils.expression_is_true:
-          expression: "climber_age >= 0"  # Data creation error
-          config:
-            severity: warn
-            store_failures: true
+          arguments:
+            expression: "climber_age >= 0"  # Data creation error
+            config:
+              severity: warn
+              store_failures: true
     columns:
       - name: ascent_id
         tests:
           - unique
           - not_null
           - relationships:
-              to: ref('stg_ascents')
-              field: ascent_id
+              arguments:
+                to: ref('stg_ascents')
+                field: ascent_id
       - name: user_id
         tests:
           - relationships:
-              to: ref('stg_climbers')
-              field: user_id
+              arguments:
+                to: ref('stg_climbers')
+                field: user_id
         description: '{{ doc("climber_id") }}'
       - name: route_id
         tests:
           - relationships:
-              to: ref('stg_routes')
-              field: route_id
+              arguments:
+                to: ref('stg_routes')
+                field: route_id
       - name: ascent_date
       - name: route_name
       - name: crag
@@ -77,8 +83,9 @@ models:
       - name: grade_id
         tests:
           - dbt_expectations.expect_column_values_to_be_between:
-              min_value: 3
-              max_value: 84
+              arguments:
+                min_value: 3
+                max_value: 84
       - name: grade_fra
       - name: climber_age
 
@@ -89,8 +96,9 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('stg_ascents')
-              field: ascent_id
+              arguments:
+                to: ref('stg_ascents')
+                field: ascent_id
       - name: user_id
       - name: route_id
       - name: ascent_date
@@ -112,8 +120,9 @@ models:
           - unique
           - not_null
           - relationships:
-              to: ref('stg_ascents')
-              field: ascent_id
+              arguments:
+                to: ref('stg_ascents')
+                field: ascent_id
       - name: user_id
       - name: route_id
         tests:
