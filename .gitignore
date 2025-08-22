@@ -1,0 +1,73 @@
+# ----------------------------------------
+# dbt-specific files and directories
+# ----------------------------------------
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+dbt/dbt_modules/
+
+# ----------------------------------------
+# Python-specific files and directories
+# ----------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# The `uv` cache directory, which stores downloaded packages.
+# This should not be committed as it can be large and is for local use.
+.uv/
+
+# ----------------------------------------
+# AWS CDK-specific files and directories
+# ----------------------------------------
+# The `cdk.out/` directory is where CDK synthesizes CloudFormation templates
+# and other deployment artifacts.
+cdk/cdk.out/
+
+# The `cdk.context.json` file stores contextual information for your CDK app.
+# It can contain sensitive data and is often machine-specific.
+cdk/cdk.context.json
+
+# CDK asset staging directories.
+# These directories contain local assets that are staged for deployment.
+cdk/.cdk.staging/
+
+# AWS CDK stack templates generated from your code.
+# The folder structure within cdk.out can vary, so it's best to ignore the whole thing.
+*.template.json
+*.yaml
+
+# Other common CDK temporary files.
+cdk/.cdk.config.json
+
+# General IDE and OS files to ignore
+.DS_Store
+.idea/
+.vscode/
