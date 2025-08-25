@@ -15,6 +15,7 @@ models:
       - name: weight
       - name: birthdate
   - name: stg_routes
+    description: Raw details of climbing routes, including their location and grade.
     columns:
       - name: route_id
         data_tests:
@@ -30,6 +31,7 @@ models:
       - name: cluster
       - name: rating_tot
   - name: stg_grades_ref
+    description: Reference data mapping French grades to a numeric scale.
     columns:
       - name: grade_id
         data_tests:
@@ -37,6 +39,7 @@ models:
           - not_null
       - name: grade_fra
   - name: stg_ascents
+    description: Raw data about route ascents.
     columns:
       - name: ascent_id
         data_tests:

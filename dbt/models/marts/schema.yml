@@ -45,6 +45,7 @@ models:
       - name: avg_route_rating
 
   - name: fct_climber_ascents
+    description: Full ascent details including climber and route details.
     data_tests:
       - dbt_utils.expression_is_true:
           arguments:
@@ -114,6 +115,7 @@ models:
       - name: hardest_ascent_to_date
 
   - name: fct_routes_first_ascents
+    description: First ascent details for all routes.
     columns:
       - name: ascent_id
         data_tests:
