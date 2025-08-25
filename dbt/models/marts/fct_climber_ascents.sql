@@ -38,10 +38,11 @@ climbers_ascents as (
         route_details.grade_mean,
         route_details.grade_id,
         route_details.grade_fra,
-        {{ athena_date_diff_yrs(
-            'climbers.birthdate',
-            'ascents.ascent_date'
-        ) }} as climber_age
+        date_diff(
+            'year',
+            climbers.birthdate,
+            ascents.ascent_date
+        ) as climber_age
     from ascents
         left join climbers on ascents.user_id = climbers.user_id
         left join route_details on ascents.route_id = route_details.route_id
