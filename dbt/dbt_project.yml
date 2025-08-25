@@ -65,7 +65,7 @@ models:
     +docs:
       show: false
 
-tests:
+data_tests:
   climb:
     +severity: warn
     +store_failures: true

@@ -5,7 +5,7 @@ models:
     description: '{{ doc("climbers") }}'
     columns:
       - name: user_id
-        tests:
+        data_tests:
           - unique
           - not_null
         description: The primary key for stg_climbers
@@ -17,7 +17,7 @@ models:
   - name: stg_routes
     columns:
       - name: route_id
-        tests:
+        data_tests:
           - unique
           - not_null
         description: The primary key for stg_routes
@@ -32,22 +32,22 @@ models:
   - name: stg_grades_ref
     columns:
       - name: grade_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: grade_fra
   - name: stg_ascents
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: user_id
-        tests:
+        data_tests:
           - not_null
       - name: route_id
-        tests:
+        data_tests:
           - not_null
       - name: ascent_date
-        tests:
+        data_tests:
           - assert_ascent_date_in_past

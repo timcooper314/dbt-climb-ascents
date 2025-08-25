@@ -6,7 +6,7 @@ models:
     columns:
       - name: user_id
         description: '{{ doc("climber_id") }}'
-        tests:
+        data_tests:
           - unique
           - not_null:
               config:
@@ -28,7 +28,7 @@ models:
     description: One record per country.
     columns:
       - name: country
-        tests:
+        data_tests:
           - unique
           - not_null
           - relationships:
@@ -45,7 +45,7 @@ models:
       - name: avg_route_rating
 
   - name: fct_climber_ascents
-    tests:
+    data_tests:
       - dbt_utils.expression_is_true:
           arguments:
             expression: "climber_age >= 0"  # Data creation error
@@ -54,7 +54,7 @@ models:
               store_failures: true
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
           - relationships:
@@ -62,14 +62,14 @@ models:
                 to: ref('stg_ascents')
                 field: ascent_id
       - name: user_id
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('stg_climbers')
                 field: user_id
         description: '{{ doc("climber_id") }}'
       - name: route_id
-        tests:
+        data_tests:
           - relationships:
               arguments:
                 to: ref('stg_routes')
@@ -81,7 +81,7 @@ models:
       - name: country
       - name: grade_mean
       - name: grade_id
-        tests:
+        data_tests:
           - dbt_expectations.expect_column_values_to_be_between:
               arguments:
                 min_value: 3
@@ -92,7 +92,7 @@ models:
   - name: fct_climber_ascents_snapshot
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
           - relationships:
@@ -116,7 +116,7 @@ models:
   - name: fct_routes_first_ascents
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
           - relationships:
@@ -125,7 +125,7 @@ models:
                 field: ascent_id
       - name: user_id
       - name: route_id
-        tests:
+        data_tests:
           - unique
       - name: ascent_date
       - name: route_name
