@@ -5,7 +5,7 @@ models:
     description: '{{ doc("climbers") }}'
     columns:
       - name: user_id
-        tests:
+        data_tests:
           - unique
           - not_null
         description: The primary key for stg_climbers
@@ -15,9 +15,10 @@ models:
       - name: weight
       - name: birthdate
   - name: stg_routes
+    description: Raw details of climbing routes, including their location and grade.
     columns:
       - name: route_id
-        tests:
+        data_tests:
           - unique
           - not_null
         description: The primary key for stg_routes
@@ -30,24 +31,26 @@ models:
       - name: cluster
       - name: rating_tot
   - name: stg_grades_ref
+    description: Reference data mapping French grades to a numeric scale.
     columns:
       - name: grade_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: grade_fra
   - name: stg_ascents
+    description: Raw data about route ascents.
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: user_id
-        tests:
+        data_tests:
           - not_null
       - name: route_id
-        tests:
+        data_tests:
           - not_null
       - name: ascent_date
-        tests:
+        data_tests:
           - assert_ascent_date_in_past

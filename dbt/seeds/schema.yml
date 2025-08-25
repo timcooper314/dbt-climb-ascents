@@ -5,7 +5,7 @@ seeds:
     description: Global routes data from Kaggle.
     columns:
       - name: name_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: country
@@ -21,7 +21,7 @@ seeds:
     description: Climbers data from Kaggle.
     columns:
       - name: user_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: country
@@ -34,7 +34,7 @@ seeds:
     description: Route grades reference for French grades from Kaggle.
     columns:
       - name: grade_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: grade_fra
@@ -43,7 +43,7 @@ seeds:
     description: Randomly generated ascents based on climbers and routes, by TC.
     columns:
       - name: ascent_id
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: user_id

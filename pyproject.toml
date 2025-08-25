@@ -1,0 +1,11 @@
+[project]
+name = "dbt-climb-ascents"
+version = "0.1.0"
+description = "A DBT project on AWS Athena."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aws-cdk-lib>=2.212.0",
+    "constructs>=10.4.2",
+    "dbt-athena>=1.9.4",
+]

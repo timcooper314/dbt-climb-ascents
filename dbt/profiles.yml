@@ -1,4 +1,4 @@
-postgres_climbs_db:
+climbs_db:
   target: dev
   outputs:
     dev:
